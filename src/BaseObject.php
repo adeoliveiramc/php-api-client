@@ -81,6 +81,7 @@ abstract class BaseObject {
       );
     }
     $this->values = (object) json_decode($response->getBody());
+    return (object) json_decode($response->getBody());
   }
 
   public static function delete($id){
