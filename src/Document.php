@@ -14,7 +14,7 @@ class Document extends BaseObject {
       ];
       unset($this->values->file_path);
     }
-    parent::save();
+    return parent::save();
   }
 
   public function saveFile($path) {
