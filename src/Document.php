@@ -30,12 +30,26 @@ class Document extends BaseObject {
     );
     file_put_contents($path, $response->getBody());
   }
+  
+  public function getFileSigned($id) {
+    $response = ApiClient::get(
+      static::$resourceName . '/' . $id . '/file_signed'
+    );
+    return $response->getBody();
+  }
 
   public function saveXML($path) {
     $response = ApiClient::get(
       static::$resourceName . '/' . $this->id . '/xml'
     );
     file_put_contents($path, $response->getBody());
+  }
+
+  public function getXML($id) {
+    $response = ApiClient::get(
+      static::$resourceName . '/' . $id . '/xml'
+    );
+    return $response->getBody();
   }
 
   public static function createFromTemplate($args) {
